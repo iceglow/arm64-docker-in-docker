@@ -1,4 +1,4 @@
-NAME=docker-arm64-in-docker
+NAME=arm64-docker-in-docker
 REPO=gluffs/$(NAME)
 REPO_URL=registry.gluffs.eu:5000
 
