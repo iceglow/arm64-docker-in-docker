@@ -56,3 +56,7 @@ runcmd:
   - [ systemctl, daemon-reload ]
   - [ systemctl, enable, docker.service ]
   - [ service, docker, restart ]
+
+power_state:
+  message: Install done. Shutting down.
+  mode: poweroff

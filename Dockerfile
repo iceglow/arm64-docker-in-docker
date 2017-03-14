@@ -17,7 +17,12 @@ RUN apt-get update && \
     apt-get -y remove cloud-utils && \
     apt-get clean && \
     apt-get autoclean && \
-    qemu-img resize xenial-server-cloudimg-arm64-uefi1.img 4G
+    qemu-img resize xenial-server-cloudimg-arm64-uefi1.img 4G && \
+    qemu-system-aarch64 -cpu cortex-a57 -smp 1 -m 512 -M virt -bios QEMU_EFI.fd -nographic \
+      -device virtio-blk-device,drive=image -drive if=none,id=image,file=xenial-server-cloudimg-arm64-uefi1.img \
+      -device virtio-blk-device,drive=cloud -drive if=none,id=cloud,file=cloud.img \
+      -netdev user,id=user0 -device virtio-net-device,netdev=user0
+
 
 EXPOSE 2375
 

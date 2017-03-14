@@ -28,4 +28,4 @@ bash: CMD = bash
 bash: build run
 
 run:
-	docker run -p2375:2375 -v /etc/localtime:/etc/localtime:ro --privileged=true --device=/dev/ttyACM0 -t -i --rm $(REPO) $(CMD)
+	docker run -p 2375:2375 -v /etc/localtime:/etc/localtime:ro --privileged=true --device=/dev/ttyACM0 -t -i --rm $(REPO) $(CMD)
